@@ -2,10 +2,11 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="style.css">
 <title>Conceptual Framework</title>
 </head>
 
-<body>
+<body id="container" style="color: #bb00ff; background-color: black;">
   <p>
      <h1 style="color: blue; font-family: 'Roboto' , sans-serif;">
        Conceptual Framework:
@@ -40,10 +41,31 @@
   <p>
   Feedback Mechanism: Implement a feedback mechanism that allows the individual projecting their subconscious to interact with and influence the simulated future environment. This interaction could provide insights and guidance for decision-making in the present.
   </p>
-  <a href="https://icebearisawbear.github.io/TemporalNavigationResearch3/">
-  <button>click to go to next page</button></a>
-  <a href="https://icebearisawbear.github.io/TemporalNavigationResearch/">
-  <button>click to go to previous page</button></a>
+  <a href="https://icebearisawbear.github.io/TemporalNavigationResearch3/" class="button">
+    click to go to next page
+</a>
+  <a href="https://icebearisawbear.github.io/TemporalNavigationResearch/" class="button">
+click to go to previous page
+  </a>
+
+    <script>
+        (function() {
+            document.addEventListener("mousemove", parallax);
+            const elem = document.querySelector("#container");
+
+            function parallax(e) {
+                let _w = window.innerWidth/2;
+                let _h = window.innerHeight/2;
+                let _mouseX = e.clientX;
+                let _mouseY = e.clientY;
+                let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
+                let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
+                let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+                let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+                elem.style.backgroundPosition = x;
+            }
+        })();
+    </script>
 </body>
 
 </html>
